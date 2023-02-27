@@ -33,7 +33,7 @@ const storage = multer.diskStorage({
   
 const upload = multer({ storage: storage })
 router.post("/",  createUser);
-router.get("/", getUsers);
+router.get("/",checkToken, getUsers);
 router.get("/:id", checkToken, getUserByUserId);
 router.patch("/",  checkToken,updateUser);
 router.delete("/", checkToken, deleteUser);
